@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const Post = require("../models/postModel")
 const catchAsync = require("../utils/catchAsync")
+const AppError = require("../utils/errors/appError")
 
 const SAMPLE_POSTS = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../tests/data/posts.json')))
 
@@ -33,6 +34,9 @@ const getPostById = catchAsync (async (req, res, next) => {
     
         const post = await Post.findById(req.params.id)
         
+        if (!post) {
+            return next(new AppError("Post doesn't exist", 404))
+        }
         
         res.status(200).json({
             status: "succes",
@@ -159,10 +163,14 @@ const deletePost = catchAsync( async (req, res,next) => {
 
 
 
-        await Post.findByIdAndDelete(req.params.id, req.body, {
+       const post = await Post.findByIdAndDelete(req.params.id, req.body, {
             new: true,
             runValidators: true
         })
+
+        if (!post) {
+            return next(new AppError("Post doesn't exist", 404))
+        }
 
         res.status(200).json({
             status: "succes",

@@ -4,7 +4,7 @@ class AppError extends Error {
 
         this.statusCode = statusCode
         this.status = `${statusCode}`.startsWith("4") ? "fail" : "error" // 400 - 499 = Client error | 500 - 599 = Server error
-        this.isOperational = true // This distiguishes trusted user and unknown user
+        this.isOperational = true // This distiguishes trusted user and unknown user (false,untrosted)
 
         Error.captureStackTrace(this, this.constructor)
     }
