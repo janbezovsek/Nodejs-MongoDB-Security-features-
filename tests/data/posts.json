@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "title": "Post1",
+    "content": "Sample content1",
+    "createdAt": "11.11.2024"
+  },
+  {
+    "id": 1,
+    "title": "Post2",
+    "content": "Sample content2",
+    "createdAt": "11.11.2024"
+  },
+  {
+    "id": 2,
+    "title": "Post3",
+    "content": "Sample content3",
+    "createdAt": "11.11.2024"
+  },
+  {
+    "id": 3,
+    "title": "Updated title via patch method",
+    "content": "Sample content for new post",
+    "createdAt": 1732823696638
+  }
+]
