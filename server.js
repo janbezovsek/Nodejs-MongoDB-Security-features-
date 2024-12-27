@@ -4,7 +4,6 @@ const mongoose = require('mongoose')
 
 
 
-
 const app = require("./src/app")
 
 //Database connection
@@ -28,9 +27,6 @@ async function dbConnect() {
 
 //Calling db connection
 dbConnect()
-
-
-
 
 
 const PORT = process.env.PORT || 3000
