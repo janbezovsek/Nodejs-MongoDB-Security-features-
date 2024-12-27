@@ -5,6 +5,7 @@ const postSchema = new mongoose.Schema({
     title: {
         type: String,
         required: [true, "Title can't be empty"],
+        unique: true,
         minLength: [3, "Title can't be smaller than 3 characters"],
         maxLength: [100, "Title can't be larger than 100 characters"]
     } ,
